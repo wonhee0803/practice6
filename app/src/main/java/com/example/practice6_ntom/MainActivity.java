@@ -3,6 +3,7 @@ package com.example.practice6_ntom;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.practice6_ntom.databinding.ActivityMainBinding;
@@ -16,26 +17,35 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.button.setOnClickListener(view -> calc());
+        binding.button.setOnClickListener(v -> calc());
     }
 
     private void calc() {
-        int start = Integer.parseInt(binding.editStart.getText().toString());
-        int end = Integer.parseInt(binding.editEnd.getText().toString());
+        String start = binding.editStart.getText().toString();
+        String  end = binding.editEnd.getText().toString();
 
-        if (start >= end) {
-            binding.textResult.setText("시작 값은 종료 값보다 작거나 같아야 합니다.");
+        if (start.isEmpty() || end.isEmpty()) {
+            Toast.makeText(this, "숫자를 입력해 주세요", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        String label = String.format("%d부터 %d 까지의 합은", start, end);
-        binding.textResult.setText(label);
+        int startValue = Integer.parseInt(start);
+        int endValue = Integer.parseInt(end);
 
-        int result = 0;
-        for (int i = 1; i <= end; i++) {
-            result += i;
+        if (startValue > endValue) {
+            Toast.makeText(this, "시작 값은 종료 값보다 작거나 같아야 합니다.", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        binding.textResult.setText(Integer.toString(result));
+
+        int calc = 0;
+        for (int i = startValue; i <= endValue; i++) {
+            calc += i;
+        }
+
+        binding.textResult.setText(Integer.toString(calc));
+        binding.textResult.setVisibility(View.VISIBLE);
+        binding.labelResult.setText(String.format("%d부터 %d 까지의 합은", startValue, endValue));
+        binding.labelResult.setVisibility(View.VISIBLE);
     }
 }

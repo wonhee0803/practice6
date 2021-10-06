@@ -41,25 +41,7 @@
         app:layout_constraintStart_toStartOf="@+id/label_end"
         app:layout_constraintTop_toBottomOf="@+id/label_end" />
 
-    <TextView
-        android:id="@+id/label_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@+id/edit_end"
-        app:layout_constraintTop_toBottomOf="@+id/edit_end"
-        tools:text="n부터 k까지의 합은?"/>
 
-    <TextView
-        android:id="@+id/text_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textSize="40dp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@+id/label_result"
-        app:layout_constraintTop_toBottomOf="@+id/label_result" />
 
     <Button
         android:id="@+id/button"
@@ -69,5 +51,24 @@
         android:text="계산"
         app:layout_constraintStart_toStartOf="@+id/text_result"
         app:layout_constraintTop_toBottomOf="@+id/text_result" />
+
+
+    <TextView
+        android:id="@+id/label_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@+id/edit_end"
+        app:layout_constraintTop_toBottomOf="@+id/edit_end"
+        tools:text="n부터 k 까지의 합은?"/>
+
+    <TextView
+        android:id="@+id/text_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@+id/label_result"
+        app:layout_constraintTop_toBottomOf="@+id/label_result"
+        tools:text="합계"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
